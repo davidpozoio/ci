@@ -1,1 +1,3 @@
-const asyncErroHandler = async () => {};
+const asyncErroHandler = async () => {
+  return () => {};
+};
