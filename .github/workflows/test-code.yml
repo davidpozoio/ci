@@ -1,0 +1,20 @@
+name: Test
+on: [push]
+jobs:
+  testing:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Cloning repository...
+        uses: actions/checkout@v4
+
+      - name: Installing pnpm
+        run: npm install pnpm -g
+
+      - name: Installing dependencies
+        run: pnpm install
+      
+      - name: Running tests
+        run: pnpm run test
