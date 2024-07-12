@@ -1,0 +1,14 @@
+name: Github action demo
+run-name: ${{ github.actor }} run on github
+on: [push]
+jobs:
+  start:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "github action name ${{ github.event_name }}"
+      - run: echo "this is running on ${{ runner.os }}"
+      - run: echo "the name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}"
+      - name: Checkout Repository code
+        uses: actions/checkout@v4
+      - name: List names of the current cloned repository ${{ github.repository }}
+        run: ls ${{ github.workspace }}
